@@ -1,0 +1,321 @@
+@import "~bootstrap/scss/bootstrap";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // overflow-x: hidden;
+}
+
+/* Sobrescribimos las variables de boostrap */
+// $primary:       #34fe32 ;
+
+/* Variables propias */
+/* fuente */
+$font-barlow : 'Barlow';
+$font-fraunces: 'Fraunces';
+
+/* Colors */
+// ### Primary
+
+$Soft-red: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$Dark-desaturated-cyan : hsl(167, 40%, 24%); /* (graphic design text) */
+$Dark-blue : hsl(198, 62%, 26%); /* (photography text) */
+$Dark-moderate-cyan : hsl(168, 34%, 41%);/* (footer) */
+$fondo-footer:rgb(144,212,197);
+// ### Neutral
+
+$Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$Very-dark-grayish-blue: hsl(213, 9%, 39%);
+$Dark-grayish-blue: hsl(232, 10%, 55%);
+$Grayish-blue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    position: relative;
+    // background-color:  $Yellow;
+    font-size: 18px;
+    font-family: $font-barlow;
+    overflow-x: hidden;
+}
+
+
+
+.gallery img{
+    width: 100%;
+}
+/* Header */
+.header{
+    background-image: url('../images/mobile/image-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    .arrow-dowm{
+        animation: flotar .4s ease-in infinite alternate;
+        filter: drop-shadow(0 20px 10px $Dark-blue);
+    }
+    
+    
+    @media (min-width:768px) {
+        background-image: url('../images/desktop/image-header.jpg');
+        .header__creatives h1{
+            font-size: 4em;
+            font-family: 'Fraunces';
+            font-weight: 600;
+        }
+        .arrow-dowm{
+            width: 60px;
+            
+        }
+        .logo{
+            width: 150px;
+        }
+    }
+    // border: 1px solid black;
+    // width: 100%;
+}
+
+@keyframes flotar {
+    0%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+/* nav */
+#icon-hamburguer{
+   
+    outline: none !important;
+    border: none !important;
+    border: 1px solid orangered;
+}
+.navbar-toggler:focus{
+    border: unset;
+    outline: unset;
+}
+.navbar-toggler{
+    border: unset;
+    outline: unset;
+}
+
+#icon-hamburguer:focus{
+   
+    outline: none !important;
+    border: none !important;
+
+}
+
+.collapsed:focus{
+   
+    border: none;
+    outline: none;
+
+}
+
+
+/* Nav menu */
+@keyframes show {
+    0%{
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 0, 0 0);
+        opacity: 0;
+    }
+    100%{
+        clip-path: polygon(95% 11%, 100% 0, 100% 100%, 0 100%, 0 11%);
+        opacity: 1;
+    }
+}
+
+
+.navbar{
+    
+    // width: 100%;
+    margin: 0 auto;
+    max-width: 1400px;
+    height: 80px;
+}
+
+
+#nav-menu{
+    .nav-link:hover{
+        text-decoration: underline;
+    }
+    background: transparent;
+    z-index: 100;
+    .active{
+        background-color: $White;
+        color: $Dark-blue;
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all .3s;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.258);
+            color: white;
+        }
+    }  
+
+    @media (max-width:767px) {
+        border-radius: 20px;
+        clip-path: polygon(95% 11%, 100% 0, 100% 100%, 0 100%, 0 11%);
+        padding: 50px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        background-color: $White ;
+        position: absolute;
+        max-width: 500px;
+        left: 30px;
+        right: 30px;
+        animation: show .3s cubic-bezier(.99,-0.11,.58,1.77);
+        font-family: $font-fraunces;
+        
+        .nav-link{
+            color: $Dark-blue !important;
+           
+        }
+
+        .active{
+            background-color: $Yellow;
+            padding: 10px 30px;
+            border-radius: 20px;
+            &:hover{
+                background-color: $Yellow;
+                filter: brightness(1.1);
+            }
+        }    
+        
+    }
+
+    @media (min-width:536px) and (max-width:767px) {
+        left: unset;
+        width: 500px;
+        right: 30px;
+    }
+
+}
+
+
+/* Hero */
+
+.header__creatives{
+    // border: 1px solid black;
+    font-family: $font-fraunces;
+    margin-top: 10vh;
+    h1{
+        font-size: 3em;
+        font-weight: 900;
+    }
+}
+
+
+
+
+/* sections */
+.section{
+    background-color: $White;
+    // padding: 30px;
+   
+    margin: 0 auto !important;
+    h1{
+        font-family: $font-fraunces;
+        font-weight: bold;
+        font-size: 2.5em
+    }
+    p{
+        color: $Very-dark-grayish-blue;
+        line-height: 30px;
+    }
+    .btn{
+        font-family: $font-barlow;
+        text-transform: uppercase;
+        font-weight: bold;
+        white-space: 18px;
+        // filter: drop-shadow(0px 5px 4px $Yellow);
+        box-shadow: inset 0 -10px hsla(51, 100%, 49%, 0.187);
+        padding-bottom: 0;
+        transition: all .3s;
+        &:hover{
+            box-shadow: inset 0 -10px $Yellow;
+        }
+    }
+   
+}
+.section-audience{
+    .btn{
+        
+        box-shadow: inset 0 -10px hsla(7, 99%, 70%, 0.2);
+        
+        &:hover{
+            box-shadow: inset 0 -10px $Soft-red;
+        }
+    }
+}
+
+
+/* secrion section-graphic */
+.section-graphic{
+    height: 80vh;
+    background: url('../images/mobile/image-graphic-design.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: $Dark-desaturated-cyan;
+
+    @media (min-width:768px) {
+        background-image: url('../images/desktop/image-graphic-design.jpg');
+    }
+}
+
+.section-photo{
+    height: 80vh;
+    background: url('../images/mobile/image-photography.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: $Dark-blue;
+    
+    @media (min-width:768px) {
+        background-image: url('../images/desktop/image-photography.jpg');
+    }
+
+}
+
+
+/* Images sections */
+.image-section{
+    width: 100%;
+}
+
+
+/* footer */
+.footer{
+    background-color: $fondo-footer;
+    a{
+        text-decoration: none;
+        color: $Dark-moderate-cyan;
+        font-weight: 700;
+        &:hover{
+            filter: brightness(1.2);
+        }
+    }
+}
+
+.logo-footer{
+    color: $Dark-desaturated-cyan;
+    display: block;
+    width: 180px;
+}
